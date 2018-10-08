@@ -1,0 +1,17 @@
+        body {
+		background-image: url(space.jpg);
+        background-size: cover;
+		}
+
+		.display-3{color: white;}
+
+		form{
+		margin-top:1%;
+		margin-right:14px;}
+
+		.btn {
+		font-family:Arial Narrow
+		letter-spacing: 5px;}
+
+		.col-9{
+		margin-top:15%;}

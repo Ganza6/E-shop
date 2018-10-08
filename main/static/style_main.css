@@ -1,0 +1,32 @@
+.section{
+margin-top:100px;
+}
+
+
+.product-item:hover{
+border-color:#28a745;
+}
+
+.product-item{
+height: 430px;
+width: 250px;
+background-color:#ffffff;
+border:1px solid;
+position:relative;
+border-color:#dddddd;
+padding:5px;
+}
+
+.col{
+margin-top:20px;}
+
+
+.bd{
+background-color:#f8f9fa;
+overflow-x:hidden;
+}
+
+.add{
+position:absolute;
+bottom:5px;
+left:37px;}

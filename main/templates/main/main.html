@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+			<image src='{% static "slider1.jpg"%}' class="img-fluid">
+				<link rel="stylesheet" type="text/css" href='{% static "style_main.css"%}'  />
+				<div class="section">
+	<div class ='conteiner'>
+		<div class = 'row'>
+			<div class ='col-lg-12'>
+			<h1 class = "text-center">
+				Хиты продаж
+			</h1>
+				</div>
+			{% for product_image in products_images%}
+			<div class="col" align="center">
+
+				<div class = "product-item">
+					<div >
+					<img src="{{product_image.image.url}}">
+				</div>
+					<div class = 'name'>
+					<h4>{{product_image.product.name}}</h4>
+					<p>
+					{{product_image.product.description}}
+
+				</p>
+					</div>
+					<div class ='price'>
+						<h5>{{product_image.product.price}} Рублей</h5>
+					</div>
+					<div class ="add">
+					<button class = 'btn btn-success'>Добавить в корзину</button>
+				</div>
+			</div>
+			</div>
+			{% endfor%}
+		</div>
+	</div>
+			<div class="section">
+	<div class ='conteiner'>
+		<div class = 'row'>
+			<div class ='col-lg-12'>
+			<h1 class = "text-center">
+				Кружки
+			</h1>
+				</div>
+			{% for product_image in products_images%}
+			<div class="col" align="center">
+
+				<div class = "product-item">
+					<div >
+					<img src="{{product_image.image.url}}">
+				</div>
+					<div class = 'name'>
+					<h4>{{product_image.product.name}}</h4>
+					<p>
+					{{product_image.product.description}}
+
+				</p>
+					</div>
+					<div class ='price'>
+						<h5>{{product_image.product.price}} Рублей</h5>
+					</div>
+					<div class ="add">
+					<button class = 'btn btn-success'>Добавить в корзину</button>
+				</div>
+			</div>
+			</div>
+			{% endfor%}
+		</div>
+	</div>
+
+				<div class="section">
+	<div class ='conteiner'>
+		<div class = 'row'>
+			<div class ='col-lg-12'>
+			<h1 class = "text-center">
+				Чайники
+			</h1>
+				</div>
+			{% for product_image in products_images%}
+			<div class="col" align="center">
+
+				<div class = "product-item">
+					<div >
+					<img src="{{product_image.image.url}}">
+				</div>
+					<div class = 'name'>
+					<h4>{{product_image.product.name}}</h4>
+					<p>
+					{{product_image.product.description}}
+
+				</p>
+					</div>
+					<div class ='price'>
+						<h5>{{product_image.product.price}} Рублей</h5>
+					</div>
+					<div class ="add">
+					<button class = 'btn btn-success'>Добавить в корзину</button>
+				</div>
+			</div>
+			</div>
+			{% endfor%}
+		</div>
+	</div>
+
+
+{% endblock content %}
