@@ -18,6 +18,7 @@ class Product(models.Model):
     created = models.DateTimeField(auto_now_add = True, auto_now=False)
     updated = models.DateTimeField(auto_now_add = False, auto_now=True)
     type = models.ForeignKey(ProductType,on_delete=models.CASCADE,null = 1)
+    discount = models.IntegerField(default=0,blank=True)
     class Meta:
         verbose_name = 'Товар'
         verbose_name_plural = 'Товары'

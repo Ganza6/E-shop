@@ -1,7 +1,8 @@
 from django.urls import path
 from . import views
 urlpatterns = [
-    # path("", views.GeneralApp, name ="GlobalApp")
+        path('',views.product),
+        path(r'<int:product_id>', views.product),
  ]
 
 

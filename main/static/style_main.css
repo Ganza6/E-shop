@@ -1,11 +1,19 @@
 .section{
-margin-top:100px;
+margin-top:30px;
 }
-
+a{
+text-decoration: none;
+color:black;
+}
+a:hover{
+text-decoration: none;
+color:black;
+}
 
 .product-item:hover{
 border-color:#28a745;
 }
+
 
 .product-item{
 height: 430px;
@@ -15,6 +23,7 @@ border:1px solid;
 position:relative;
 border-color:#dddddd;
 padding:5px;
+margin-bottom:20px;
 }
 
 .col{
