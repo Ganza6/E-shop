@@ -12,6 +12,12 @@ class ProductAdmin(admin.ModelAdmin):
     inlines = [ProductImageInline]#can download images from product
 admin.site.register(Product,ProductAdmin)
 
+class ProductTypeAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in ProductType._meta.fields]
+    class Meta:
+        model = ProductType
+admin.site.register(ProductType,ProductTypeAdmin)
+
 # class ProductImageAdmin(admin.ModelAdmin):
 #     list_display = [field.name for field in ProductImage._meta.fields]
 #     class Meta:

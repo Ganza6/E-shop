@@ -58,7 +58,7 @@ class ProductInOrder(models.Model):
         self.total_price = self.price_per_item * self.number
         super().save()
 
-def product_in_order_post_save(sender,instance,created,**kwargs):
+def product_in_order_post_save(sender,instance,created,**kwargs):#чтобы цена состояла из всех товаров заказа
     order = instance.order
     all_products_in_order = ProductInOrder.objects.filter(order=order)
     order_total_price = 0
