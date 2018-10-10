@@ -54,13 +54,14 @@
 				</div>
 			{% for product_image in products_images_cups%}
 			<div class="col" align="center">
-
+<a href="product/{{product_image.product.id }}">
 				<div class = "product-item">
 					<div >
 					<img src="{{product_image.image.url}}">
 				</div>
 					<div class = 'name'>
 					<h4>{{product_image.product.name}}</h4>
+						</a>
 					<p>
 					{{product_image.product.description}}
 
@@ -88,13 +89,14 @@
 				</div>
 			{% for product_image in products_images_teapots%}
 			<div class="col" align="center">
-
+<a href="product/{{product_image.product.id }}">
 				<div class = "product-item">
 					<div >
 					<img src="{{product_image.image.url}}">
 				</div>
 					<div class = 'name'>
 					<h4>{{product_image.product.name}}</h4>
+						</a>
 					<p>
 					{{product_image.product.description}}
 
