@@ -14,6 +14,7 @@ class Product(models.Model):
     name = models.CharField(max_length=64,null = True,default= None)#null - запишется null в базу данных при отсутствии значения
     description = models.TextField(blank=True,null = True,default= None)#blank -обязательное поле или нет
     is_active = models.BooleanField(default=True)
+    full_description = models.TextField(blank=True,null = True,default= None)
     price = models.DecimalField(decimal_places=2, max_digits=7, default=1000)
     created = models.DateTimeField(auto_now_add = True, auto_now=False)
     updated = models.DateTimeField(auto_now_add = False, auto_now=True)

@@ -9,10 +9,13 @@
 </head>
 <body class ='bd'>
 	<div class ='wrapper'>
-		{% include 'navbar.html' %}
-		{% block content %}
-		{% endblock content %}
-		{% include 'footer.html' %}
+		<div class ='wrapper-content'>
+			{% include 'navbar.html' %}
+			{% block content %}
+			{% endblock content %}
+		</div>
 	</div>
+	{% include 'footer.html' %}
+
 </body>
 </html>

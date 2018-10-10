@@ -1,0 +1,41 @@
+
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href='{% static "style_product.css"%}'  />
+<div class = 'content'>
+	<div class = 'row'>
+		<div class ='image'>
+		<div class = 'col'>
+			{%for image in product.productimage_set.all%}
+			<img src ='{{ image.image.url}}'
+				 {%endfor%}
+		</div>
+			</div>
+		<div class ='information'>
+		<div class ='col'>
+			<h1 class = ''>
+				{{product.name}}
+			</h1>
+			</div>
+			<div class = 'col-6'>
+				<p class = ''>
+					 {{product.full_description}}
+			</p>
+			</div>
+			<div class = 'col'>
+				<h6>
+					 Цена: {{product.price}} ₽
+			</h6>
+			</div>
+			<div class="add">
+						<div class ="col">
+					<button class = 'btn btn-success'>Добавить в корзину</button>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	</div>
+</div>
+{% endblock content %}

@@ -5,4 +5,12 @@ display: block;
 
 .footer{
 background-color:#edeef0;
-height:25px;}
+height:25px;
+}
+.bd{
+background-color:#f8f9fa;
+overflow-x:hidden;
+}
+
+.wrapper-content{
+min-height: calc(100vh - 25px);}
