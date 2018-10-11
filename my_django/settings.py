@@ -19,8 +19,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'q2++$za@eu8!wz7c3q#gyfhnkhuv)$_+t1&n^ves7yoi78u7*z'
+# SECURITY WARNING: keep the secret key used in production secret! - коммент херни не скажет) Не красиво добавлять такое
+SECRET_KEY = 'q2++$za@eu8!wz7c3q#gyfhnkhuv)$_+t1&n^ves7yoi78u7*z'  # в гит. Это надо держать в отдельном файле
+# (его обычно называют local.py и добавляют в .gitignore) и никому не показывать
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -121,7 +122,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-MEDIA_ROOT = os.path.join(BASE_DIR,"static/media")#addres for image
+MEDIA_ROOT = os.path.join(BASE_DIR,"static/media")#addres for images
 STATIC_ROOT = os.path.join(BASE_DIR,"static/")
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'

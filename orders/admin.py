@@ -10,7 +10,7 @@ class ProductInOrderInline(admin.TabularInline):
 class OrderAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Order._meta.fields]
     exclude = ('total_price',)
-    class Meta:
+    class Meta:  # class Meta не должен быть посередине кода. Либо в начале, либо в конце
         model = Order
     inlines = [ProductInOrderInline]
 admin.site.register(Order,OrderAdmin)

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import *
+from . models import * # не надо все импортить
 
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
@@ -10,7 +10,7 @@ class ProductAdmin(admin.ModelAdmin):
     class Meta:
         model = Product
     inlines = [ProductImageInline]#can download images from product
-admin.site.register(Product,ProductAdmin)
+admin.site.register(Product,ProductAdmin) # все site.register стоит сосредоточить в конце файла
 
 class ProductTypeAdmin(admin.ModelAdmin):
     list_display = [field.name for field in ProductType._meta.fields]

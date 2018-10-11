@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'GeneralApp/Style.css' %}" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Обратная связь</title>
-	<script>
+	<script> {# придерживайся правила - все скрипты в конце страницы, css в начале #}
     function redirect(){
        window.location.href = "/";
     }
@@ -22,7 +22,7 @@
 		</div>
 		</div>
 	</div>
-</form>
+</form> {# huh? Тут лишние закрывающие теги формы и дива #}
 
  </body>
 </html>

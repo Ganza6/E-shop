@@ -11,11 +11,11 @@ class ProductType(models.Model):
         return "%s" % (self.name)
 
 class Product(models.Model):
-    name = models.CharField(max_length=64,null = True,default= None)#null - запишется null в базу данных при отсутствии значения
+    name = models.CharField(max_length=64,null = True,default= None)#null - запишется null в базу данных при отсутствии значения (64 символа на имя - выглядит мало)
     description = models.TextField(blank=True,null = True,default= None)#blank -обязательное поле или нет
-    is_active = models.BooleanField(default=True)
-    full_description = models.TextField(blank=True,null = True,default= None)
-    price = models.DecimalField(decimal_places=2, max_digits=7, default=1000)
+    is_active = models.BooleanField(default=True)  # active странно говорить о товаре. Скорее надо is_available
+    full_description = models.TextField(blank=True,null = True,default= None)  # если есть full_description должна быть и не full) Если ее нет, то достаточно назвать атрибут description
+    price = models.DecimalField(decimal_places=2, max_digits=7, default=1000)  # default значение для цены - это опасно
     created = models.DateTimeField(auto_now_add = True, auto_now=False)
     updated = models.DateTimeField(auto_now_add = False, auto_now=True)
     type = models.ForeignKey(ProductType,on_delete=models.CASCADE,null = 1)
@@ -31,7 +31,7 @@ class ProductImage(models.Model):
     product = models.ForeignKey(Product,blank=True,null = True,default= None,on_delete=models.CASCADE)
     image = models.ImageField(upload_to='products_images')
     is_active = models.BooleanField(default=True)
-    is_main = models.BooleanField(default=False)
+    is_main = models.BooleanField(default=False)  # не ясно зачем этот атриубт
     created = models.DateTimeField(auto_now_add = True, auto_now=False)
     updated = models.DateTimeField(auto_now_add = False, auto_now=True)
 
