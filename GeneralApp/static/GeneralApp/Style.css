@@ -10,7 +10,7 @@
 		margin-right:14px;}
 
 		.btn {
-		font-family:Arial Narrow
+		font-family:Arial Narrow // что-то пропущено
 		letter-spacing: 5px;}
 
 		.col-9{
@@ -28,3 +28,6 @@
         color:#dc3545;
 
         }
+/*
+	тут в файле все плохо с табуляцией
+ */
