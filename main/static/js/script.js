@@ -12,6 +12,7 @@ $(document).ready(function(){
     console.log(product_name);
     console.log(nmb);
     console.log(product_price);
+    console.log
     })
 //$("#hidden").css("display", "none;"); // Для скрытия
 //$("#hidden").css("display", "block;"); // Для показа

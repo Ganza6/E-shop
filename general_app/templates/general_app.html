@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC>
+<html>
+	{% load static %}
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Обратная связь</title>
+	</head>
+<!--пробная страничека в общем-то, нужна была для того, что бы понять как соединить модели, html и базу данных-->
+	<body>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="{% static 'general_app/style.css' %}" />
+		<div class="container" align = center>
+			<div class = 'col-10' >
+				<form method="post">{% csrf_token %}
+					<h1 class="display-3">Оставьте Ваши данные</h1>
+					<div class="row align-items-center">
+						<div class="col">
+							{{form.name}}
+						</div>
+						<div class="col">
+							{{form.email}}
+						</div>
+						<button class = 'btn btn-danger'>Отправить</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	 </body>
+</html>

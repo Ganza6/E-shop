@@ -1,22 +1,31 @@
-.row{
-background-color:white;
+.row {
+    background-color: white;
 }
-.information{
-background:white;
-margin-left:30%;
-margin-top:-250px;}
-background-color:white;}
-.row{
-height:50%;}
 
-.col{
-margin-left:100px;
-padding-bottom:20px;}
-.col-6{
-margin-left:100px;
-padding-bottom:20px;}
-.image{
-margin-top:5%;}
+.information {
+    background: white;
+    margin-left: 30%;
+    margin-top: -250px;
+}
 
-.form-inline{
-margin-left:95px;}
+.row {
+    height: 50%;
+}
+
+.col {
+    margin-left: 100px;
+    padding-bottom: 20px;
+}
+
+.col-6 {
+    margin-left: 100px;
+    padding-bottom: 20px;
+}
+
+.image {
+    margin-top: 5%;
+}
+
+.form-inline {
+    margin-left: 95px;
+}

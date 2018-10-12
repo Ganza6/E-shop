@@ -1,118 +1,95 @@
 {% extends "base.html" %}
 {% block content %}
 {% load staticfiles %}
-			<image src='{% static "slider1.jpg"%}' class="img-fluid">
-				<link rel="stylesheet" type="text/css" href='{% static "style_main.css"%}'  />
-				<div class="section">
-	<div class ='conteiner'>
-		<div class = 'row'>
-			<div class ='col-lg-12'>
-			<h1 class = "text-center">
-				Хиты продаж
-			</h1>
+	<image src='{% static "slider1.jpg"%}' class="img-fluid"></image>
+	<link rel="stylesheet" type="text/css" href='{% static "main_style.css"%}'  />
+<!--дальше происходит какая то бесовщина, два незакрытых дива дают нормальный результат. надо разобраться-->
+	<div class="section">
+		<div class ='container'>
+			<div class = 'row'>
+				<div class ='col-lg-12'>
+				<h1 class = "text-center">Хиты продаж</h1>
 				</div>
-			{% for product_image in products_images%}
-			<div class="col" align="center">
-
-
-
-<a href="product/{{product_image.product.id }}">
-				<div class = "product-item">
-					<div >
-					<img src="{{product_image.image.url}}">
+				{% for product_image in products_images%}
+				<div class="col" align="center">
+					<a href="product/{{product_image.product.id }}">
+					<div class = "product-item">
+						<img src="{{product_image.image.url}}">
+						<div class = 'name'>
+						<h4>{{product_image.product.name}}</h4>
+					</a>
+					<p>{{product_image.product.description}}</p>
 				</div>
-					<div class = 'name'>
-					<h4>{{product_image.product.name}}</h4>
-
-
-</a>
-
-					<p>
-					{{product_image.product.description}}
-
-				</p>
-					</div>
-					<div class ='price'>
-						<h5>{{product_image.product.price}} Рублей</h5>
-					</div>
-					<div class ="add">
+				<div class ='price'>
+					<h5>{{product_image.product.price}} Рублей</h5>
+				</div>
+				<div class ="add">
 					<button class = 'btn btn-success'>Добавить в корзину</button>
 				</div>
 			</div>
-			</div>
-			{% endfor%}
-
 		</div>
+		{% endfor%}
 	</div>
-			<div class="section">
-	<div class ='conteiner'>
-		<div class = 'row'>
-			<div class ='col-lg-12'>
-			<h1 class = "text-center">
-				Кружки
-			</h1>
-				</div>
-			{% for product_image in products_images_cups%}
-			<div class="col" align="center">
-<a href="product/{{product_image.product.id }}">
-				<div class = "product-item">
-					<div >
-					<img src="{{product_image.image.url}}">
-				</div>
-					<div class = 'name'>
-					<h4>{{product_image.product.name}}</h4>
-						</a>
-					<p>
-					{{product_image.product.description}}
+	</div>
+	</div>
 
-				</p>
-					</div>
-					<div class ='price'>
-						<h5>{{product_image.product.price}} Рублей</h5>
-					</div>
-					<div class ="add">
+	<div class="section">
+		<div class ='container'>
+			<div class = 'row'>
+				<div class ='col-lg-12'>
+				<h1 class = "text-center">Кружки</h1>
+				</div>
+				{% for product_image in products_images_cups%}
+				<div class="col" align="center">
+					<a href="product/{{product_image.product.id }}">
+					<div class = "product-item">
+						<img src="{{product_image.image.url}}">
+						<div class = 'name'>
+						<h4>{{product_image.product.name}}</h4>
+					</a>
+					<p>{{product_image.product.description}}</p>
+				</div>
+				<div class ='price'>
+					<h5>{{product_image.product.price}} Рублей</h5>
+				</div>
+				<div class ="add">
 					<button class = 'btn btn-success'>Добавить в корзину</button>
 				</div>
 			</div>
-			</div>
-			{% endfor%}
 		</div>
+		{% endfor%}
 	</div>
-<image src='{% static "15.jpg"%}' class="img-fluid">
-				<div class="section">
-	<div class ='conteiner'>
-		<div class = 'row'>
-			<div class ='col-lg-12'>
-			<h1 class = "text-center">
-				Чайники
-			</h1>
-				</div>
-			{% for product_image in products_images_teapots%}
-			<div class="col" align="center">
-<a href="product/{{product_image.product.id }}">
-				<div class = "product-item">
-					<div >
-					<img src="{{product_image.image.url}}">
-				</div>
-					<div class = 'name'>
-					<h4>{{product_image.product.name}}</h4>
-						</a>
-					<p>
-					{{product_image.product.description}}
+	</div>
+	</div>
 
-				</p>
-					</div>
-					<div class ='price'>
-						<h5>{{product_image.product.price}} Рублей</h5>
-					</div>
-					<div class ="add">
+
+<image src='{% static "15.jpg"%}' class="img-fluid"></image>
+	<div class="section">
+		<div class ='container'>
+			<div class = 'row'>
+				<div class ='col-lg-12'>
+				<h1 class = "text-center">Чайники</h1>
+				</div>
+				{% for product_image in products_images_teapots%}
+				<div class="col" align="center">
+					<a href="product/{{product_image.product.id }}">
+					<div class = "product-item">
+						<img src="{{product_image.image.url}}">
+						<div class = 'name'>
+						<h4>{{product_image.product.name}}</h4>
+					</a>
+					<p>{{product_image.product.description}}</p>
+				</div>
+				<div class ='price'>
+					<h5>{{product_image.product.price}} Рублей</h5>
+				</div>
+				<div class ="add">
 					<button class = 'btn btn-success'>Добавить в корзину</button>
 				</div>
 			</div>
-			</div>
-			{% endfor%}
 		</div>
+		{% endfor%}
 	</div>
-
-
+	</div>
+	</div>
 {% endblock content %}
