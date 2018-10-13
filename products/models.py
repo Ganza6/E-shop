@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class ProductType(models.Model):
     name = models.CharField(max_length=32,blank=True, null=True, default=None)
 
@@ -9,6 +10,7 @@ class ProductType(models.Model):
 
     def __str__(self):
         return "%s" % (self.name)
+
 
 class Product(models.Model):
     name = models.CharField(max_length=64,null = True,default= None)#null - запишется null в базу данных при отсутствии значения
@@ -26,6 +28,7 @@ class Product(models.Model):
 
     def __str__(self):
         return "%s %s %s" % (self.price,self.name,self.id)
+
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product,blank=True,null = True,default= None,on_delete=models.CASCADE)
