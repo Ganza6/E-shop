@@ -8,8 +8,8 @@ class Person(models.Model):
     time = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name = 'Человек'
-        verbose_name_plural = 'Люди'
+        verbose_name = 'Человек из формы обратной связи'
+        verbose_name_plural = 'Люди из формы обратной связи'
 
     def __str__(self):
         return self.Name

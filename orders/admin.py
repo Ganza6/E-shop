@@ -1,5 +1,6 @@
 from django.contrib import admin
-from . models import *
+from . models import Order, ProductInOrder, Customer
+
 
 class ProductInOrderInline(admin.TabularInline):
     model = ProductInOrder
@@ -7,22 +8,20 @@ class ProductInOrderInline(admin.TabularInline):
     exclude = ('price_per_item',
                'total_price')
 
+
+class CustomerInline(admin.TabularInline):
+    model = Customer
+    max_num = 1
+    verbose_name_plural = 'Покупатель'
+
+
 class OrderAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Order._meta.fields]
     exclude = ('total_price',)
+    inlines = [ProductInOrderInline, CustomerInline]
+
     class Meta:
         model = Order
-    inlines = [ProductInOrderInline]
+
+
 admin.site.register(Order,OrderAdmin)
-
-# class StatusAdmin(admin.ModelAdmin):
-#     list_display = [field.name for field in Status._meta.fields]
-#     class Meta:
-#         model = Status
-# admin.site.register(Status,StatusAdmin)
-
-# class ProductInOrderAdmin(admin.ModelAdmin):
-#     list_display = [field.name for field in ProductInOrder._meta.fields]
-#     class Meta:
-#         model = ProductInOrder
-# admin.site.register(ProductInOrder,ProductInOrderAdmin)

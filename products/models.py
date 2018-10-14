@@ -4,12 +4,12 @@ from django.db import models
 class ProductType(models.Model):
     name = models.CharField(max_length=32,blank=True, null=True, default=None)
 
+    def __str__(self):
+        return "%s" % (self.name)
+
     class Meta:
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
-
-    def __str__(self):
-        return "%s" % (self.name)
 
 
 class Product(models.Model):
@@ -21,13 +21,13 @@ class Product(models.Model):
     created = models.DateTimeField(auto_now_add = True, auto_now=False)
     updated = models.DateTimeField(auto_now_add = False, auto_now=True)
     type = models.ForeignKey(ProductType,on_delete=models.CASCADE,null = 1)
-    discount = models.IntegerField(default=0,blank=True)
-    class Meta:
-        verbose_name = 'Товар'
-        verbose_name_plural = 'Товары'
 
     def __str__(self):
         return "%s %s %s" % (self.price,self.name,self.id)
+
+    class Meta:
+        verbose_name = 'Товар'
+        verbose_name_plural = 'Товары'
 
 
 class ProductImage(models.Model):
@@ -38,9 +38,9 @@ class ProductImage(models.Model):
     created = models.DateTimeField(auto_now_add = True, auto_now=False)
     updated = models.DateTimeField(auto_now_add = False, auto_now=True)
 
+    def __str__(self):
+        return "Заказ %s" % self.id
+
     class Meta:
         verbose_name = 'Фотография'
         verbose_name_plural = 'Фотографии'
-
-    def __str__(self):
-        return "Заказ %s" % self.id
