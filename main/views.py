@@ -3,7 +3,7 @@ from products.models import ProductImage
 
 
 def main(request):
-    products_images = ProductImage.objects.filter(is_active=True,is_main = True)
+    products_images = ProductImage.objects.filter(is_available=True,is_main = True)
     products_images_cups = products_images.filter(product__type__id=2)
     products_images_teapots = products_images.filter(product__type__id=1)
     all_products = products_images.order_by('-product__price')

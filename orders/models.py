@@ -34,7 +34,7 @@ class Order(models.Model):
 
 class ProductInOrder(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product,on_delete=models.CASCADE,limit_choices_to={'is_active': True})
+    product = models.ForeignKey(Product,on_delete=models.CASCADE,limit_choices_to={'is_available': True})
     number = models.IntegerField(default=1)
     price_per_item = models.DecimalField(decimal_places=2, max_digits=7)
     total_price = models.DecimalField(decimal_places=2, max_digits=8)
