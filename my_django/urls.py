@@ -20,7 +20,7 @@ from my_django import settings
 admin.autodiscover()
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('forms/',include('general_app.urls')),
+    path('feedback/',include('feedback.urls')),
     path('',include('main.urls')),
     path('product/', include('products.urls')),]\
         + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)\

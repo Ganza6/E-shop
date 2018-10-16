@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'general_app',
+    'feedback',
     'orders',
     'products',
     'main',
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'my_django.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,7 +121,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-MEDIA_ROOT = os.path.join(BASE_DIR,"static/media")#addres for image
-STATIC_ROOT = os.path.join(BASE_DIR,"static/")
+MEDIA_ROOT = os.path.join(BASE_DIR, "static/media")#addres for image
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+print('????????????????????????????????????')
+print(BASE_DIR)
+print(STATIC_ROOT)
+print('????????????????????????????????????')
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'

@@ -8,8 +8,7 @@ def main(request):
     products_images_teapots = products_images.filter(product__type__id=1)
     all_products = products_images.order_by('-product__price')
     bestsellers = give_bestsellers(all_products)
-    print(bestsellers)
-    return render(request, 'main\main.html',locals())
+    return render(request, 'main/main.html',locals())
 
 
 def give_bestsellers(all_products):#добавляем в "Хиты продаж" 4 самых дорогих товара из всех категорий, если категорий недостаточно
@@ -18,7 +17,7 @@ def give_bestsellers(all_products):#добавляем в "Хиты продаж
     for i in all_products:
         types_number.add(i.product.type)
     in_bestsellers = set()
-    while len(bestsellers)<4:
+    while len(bestsellers) < 4:
         in_bestsellers_type = set()
         for i in all_products:
             if i.product.type not in in_bestsellers_type and i not in in_bestsellers:
