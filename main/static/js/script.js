@@ -7,8 +7,27 @@ $(document).ready(function(){
     var product_id = submit_btn.data('product_id');
     var product_name = submit_btn.data("product_name");
     var product_price = submit_btn.data("product_price");
-    $('.basket-items ul').append("<li>"+product_name+' '+product_price+'₽'+' x '+nmb+' шт '+'<a href="" class="delete-item">X</a>'+"</li>");
+    var number="";
+    if ($(".id").attr('class') == "id"+" "+product_id){
+        var all_text = ($("."+product_id).text());
+        for(i = 0; i < all_text.length; i++){
+            if (all_text[i]=='x'){
+                for(q = i+2;all_text[q]!=' ';q++){
+                    number += all_text[q];
+                }
+                break;
+            }
+        }
+        number = Number(number)+Number(nmb);
+        $( "."+ product_id).remove();
+        $('.basket-items ul').append("<li class='id'>"+product_name+' '+product_price+'₽'+' x '+number+' шт '+'<a href="" class="delete-item">X</a>'+"</li>");
+        $('.id').addClass(''+product_id) ;
+    }else{
+    $('.basket-items ul').append("<li class='id'>"+product_name+' '+product_price+'₽'+' x '+nmb+' шт '+'<a href="" class="delete-item">X</a>'+"</li>");
+    $('.id').addClass(''+product_id) ;
     $( "li.empty" ).remove();
+    console.log('suda tolko odin raz');}
+
     });
 
     $('#kor').hover(function(){
@@ -18,6 +37,7 @@ $(document).ready(function(){
     $(document).on('click','delete-item',function (e) {
         e.preventDefault();
         $(this).closest('li').remove();
+
     });
 
 
