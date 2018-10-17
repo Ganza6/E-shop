@@ -2,7 +2,10 @@ $(document).ready(function(){
     var form = $('#form');
     form.on('submit',function(e){
     e.preventDefault();
-    var nmb = $('#number').val();
+    var nmb = Number($('#number').val());
+    if (!Number.isInteger(nmb) || nmb==0){
+                return
+    }
     var submit_btn = $('#submit_btn');
     var product_id = submit_btn.data('product_id');
     var product_name = submit_btn.data("product_name");
@@ -18,17 +21,26 @@ $(document).ready(function(){
                 break;
             }
         }
-        number = Number(number)+Number(nmb);
+        number = Number(number)+nmb;
         $( "."+ product_id).remove();
-        $('.basket-items ul').append("<li class='id'>"+product_name+' '+product_price+'₽'+' x '+number+' шт '+'<a href="" class="delete-item">X</a>'+"</li>");
+        $('.basket-items ul').append("<li class='id'>"+product_name+' '+product_price+'₽'+' x '+number+' шт '+
+            '<a href="" class="delete-item">X</a>'+"</li>");
         $('.id').addClass(''+product_id) ;
-    }else{
-    $('.basket-items ul').append("<li class='id'>"+product_name+' '+product_price+'₽'+' x '+nmb+' шт '+'<a href="" class="delete-item">X</a>'+"</li>");
+    }
+    else{
+    $('.basket-items ul').append("<li class='id'>"+product_name+' '+product_price+'₽'+' x '+nmb+' шт '+
+        '<a href="" class="delete-item">X</a>'+"</li>");
     $('.id').addClass(''+product_id) ;
-    $( "li.empty" ).remove();
-    console.log('suda tolko odin raz');}
+    $( "li.empty" ).remove();}
 
+    $("#number").val('');
+    // $.cookie(".id "+product_id, $("."+product_id).text());
+    // var q = $.cookie('.id 2');
+    // $.cookie("qeqwe", 3);
+    // console.log(q); начинаю куки
     });
+
+
 
     $('#kor').hover(function(){
       $(".basket-items").slideToggle();
