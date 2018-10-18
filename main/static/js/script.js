@@ -1,4 +1,25 @@
 $(document).ready(function(){
+    var basket = {};
+    $.each($.cookie(), function (index, value) {
+        var id ='';
+        var item ='';
+        if (index[0]=='.'&& value!='null'){
+            for(i = 4;i<index.length;i++){
+                id+=index[i];
+            }
+            for(i=0;value[i]!='X';i++){
+                item+=value[i];
+            }
+            basket[id]=item;
+        }
+    });
+    $.each(basket,function (index,value) {
+        $( "li.empty" ).remove();
+        $('.basket-items ul').append("<li class='id'>"+value+'<a href="" class="delete-item">X</a>'+"</li>");
+        $('.id').last().addClass(''+index) ;
+    });
+
+
     var form = $('#form');
     form.on('submit',function(e){
     e.preventDefault();
@@ -6,49 +27,44 @@ $(document).ready(function(){
     if (!Number.isInteger(nmb) || nmb==0){
                 return
     }
+    $( "li.empty" ).remove();
     var submit_btn = $('#submit_btn');
     var product_id = submit_btn.data('product_id');
     var product_name = submit_btn.data("product_name");
     var product_price = submit_btn.data("product_price");
     var number="";
-    if ($(".id").attr('class') == "id"+" "+product_id){
-        var all_text = ($("."+product_id).text());
-        for(i = 0; i < all_text.length; i++){
-            if (all_text[i]=='x'){
-                for(q = i+2;all_text[q]!=' ';q++){
-                    number += all_text[q];
-                }
-                break;
+    var all_text = ($("."+product_id).text());
+    for(i = 0; i < all_text.length; i++){
+        if (all_text[i]=='x'){
+            for(q = i+2;all_text[q]!=' ';q++){
+                number += all_text[q];
             }
+            break;
         }
+    }
         number = Number(number)+nmb;
         $( "."+ product_id).remove();
         $('.basket-items ul').append("<li class='id'>"+product_name+' '+product_price+'₽'+' x '+number+' шт '+
             '<a href="" class="delete-item">X</a>'+"</li>");
-        $('.id').addClass(''+product_id) ;
-    }
-    else{
-    $('.basket-items ul').append("<li class='id'>"+product_name+' '+product_price+'₽'+' x '+nmb+' шт '+
-        '<a href="" class="delete-item">X</a>'+"</li>");
-    $('.id').addClass(''+product_id) ;
-    $( "li.empty" ).remove();}
+        $('.id').last().addClass(''+product_id) ;
+
+
 
     $("#number").val('');
-    // $.cookie(".id "+product_id, $("."+product_id).text());
-    // var q = $.cookie('.id 2');
-    // $.cookie("qeqwe", 3);
-    // console.log(q); начинаю куки
+    $.cookie(".id "+product_id, $("."+product_id).text());
     });
-
-
+    console.log($.cookie());
 
     $('#kor').hover(function(){
       $(".basket-items").slideToggle();
     });
+    var d = '.id 2';
+    $.cookie(d,null);//странное поведение, внутри функции, которая ниже, куки не удаляются
 
     $(document).on('click','delete-item',function (e) {
         e.preventDefault();
-        $(this).closest('li').remove();
+        var d = '.id 2';
+        $.cookie(d,null);
 
     });
 
