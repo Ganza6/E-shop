@@ -53,19 +53,20 @@ $(document).ready(function(){
     $("#number").val('');
     $.cookie(".id "+product_id, $("."+product_id).text());
     });
-    console.log($.cookie());
 
     $('#kor').hover(function(){
       $(".basket-items").slideToggle();
     });
-    var d = '.id 2';
-    $.cookie(d,null);//странное поведение, внутри функции, которая ниже, куки не удаляются
 
-    $(document).on('click','delete-item',function (e) {
+    $(document).on('click','.delete-item',function (e) {
         e.preventDefault();
-        var d = '.id 2';
-        $.cookie(d,null);
-
+        var id = "."+$(this).parent().attr("class");
+        $.cookie(id,null,-1);
+        var number_id='';
+        for (i = 4;i<id.length;i++){
+            number_id += id[i];
+        }
+        $( "li."+number_id ).remove()//доделать что если список пуст вывести "заглушку"
     });
 
 
