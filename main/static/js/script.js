@@ -2,9 +2,7 @@ $(document).ready(function(){
     var basket = {};
     $.each($.cookie(), function (index, value) {
         var id ='';
-        var item ='';
-        if (index[0]=='.'&& value!='null'){
-            for(i = 4;i<index.length;i++){
+        var it<index.length;i++){
                 id+=index[i];
             }
             for(i=0;value[i]!='X';i++){
@@ -16,7 +14,9 @@ $(document).ready(function(){
     $.each(basket,function (index,value) {
         $( "li.empty" ).remove();
         $('.basket-items ul').append("<li class='id'>"+value+'<a href="" class="delete-item">X</a>'+"</li>");
-        $('.id').last().addClass(''+index) ;
+        $('.id').last().addClass(''+index) ;em ='';
+        if (index[0]=='.'&& value!='null'){
+            for(i = 4;i
     });
 
 
