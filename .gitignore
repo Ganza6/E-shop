@@ -1,2 +1,7 @@
 db.sqlite3
 .idea/
+help.txt
+/feedback/migrations
+/main/migrations
+/orders/migrations
+/products/migrations
