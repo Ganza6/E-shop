@@ -2,7 +2,9 @@ $(document).ready(function(){
     var basket = {};
     $.each($.cookie(), function (index, value) {
         var id ='';
-        var it<index.length;i++){
+        var item ='';
+        if (index[0]=='.'&& value!='null'){
+            for(i = 4;i<index.length;i++){
                 id+=index[i];
             }
             for(i=0;value[i]!='X';i++){
@@ -13,10 +15,8 @@ $(document).ready(function(){
     });
     $.each(basket,function (index,value) {
         $( "li.empty" ).remove();
-        $('.basket-items ul').append("<li class='id'>"+value+'<a href="" class="delete-item">X</a>'+"</li>");
-        $('.id').last().addClass(''+index) ;em ='';
-        if (index[0]=='.'&& value!='null'){
-            for(i = 4;i
+        $('.basket-items ul').append("<li class='id'>"+value+'<a href="/" class="delete-item">X</a>'+"</li>");
+        $('.id').last().addClass(''+index) ;
     });
 
 
@@ -51,7 +51,7 @@ $(document).ready(function(){
 
 
     $("#number").val('');
-    $.cookie(".id "+product_id, $("."+product_id).text());
+    $.cookie(".id "+product_id, $("."+product_id).text(),{ path: '/'});
     });
 
     $('#kor').hover(function(){
@@ -61,12 +61,13 @@ $(document).ready(function(){
     $(document).on('click','.delete-item',function (e) {
         e.preventDefault();
         var id = "."+$(this).parent().attr("class");
-        $.cookie(id,null,-1);
+        $.cookie(id,null,{ path: '/'});
         var number_id='';
         for (i = 4;i<id.length;i++){
             number_id += id[i];
         }
-        $( "li."+number_id ).remove()//доделать что если список пуст вывести "заглушку"
+        $( "li."+number_id ).remove();
+        $(".basket-items").hide();
     });
 
 
