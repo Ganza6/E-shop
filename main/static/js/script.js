@@ -68,6 +68,9 @@ $(document).ready(function(){
         }
         $( "li."+number_id ).remove();
         $(".basket-items").hide();
+        console.log($(".list").find("li").length);
+        if($(".list").find("li").length==0)
+            $(".list").append("<li class='empty'>"+"Пока что здесь ничего нет"+"</li>");
     });
 
 
